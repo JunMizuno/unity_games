@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectBase : MonoBehaviour
 {
-    void Start()
+    virtual protected void Start()
     {
         
     }
 
-    void Update()
+    virtual protected void Update()
     {
         
     }
