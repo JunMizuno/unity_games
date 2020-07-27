@@ -18,4 +18,24 @@ public class BallBase : ObjectBase
     {
         base.Update();
     }
+
+    /// <summary>
+    /// 接触時のコールバック
+    /// isTriggerが有効時のみ
+    /// </summary>
+    /// <param name="other"></param>
+    virtual protected void OnTriggerEnter(Collider other)
+    {
+
+    }
+
+    /// <summary>
+    /// 衝突時のコールバック
+    /// isKinematicが無効時のみ
+    /// </summary>
+    /// <param name="collision"></param>
+    virtual protected void OnCollisionEnter(Collision collision)
+    {
+
+    }
 }
