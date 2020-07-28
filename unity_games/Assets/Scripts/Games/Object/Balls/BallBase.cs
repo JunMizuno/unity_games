@@ -19,6 +19,11 @@ public class BallBase : ObjectBase
         base.Update();
     }
 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+
     /// <summary>
     /// 接触時のコールバック
     /// isTriggerが有効時のみ

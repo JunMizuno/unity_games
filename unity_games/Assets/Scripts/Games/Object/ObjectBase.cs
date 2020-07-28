@@ -13,4 +13,9 @@ public class ObjectBase : MonoBehaviour
     {
         
     }
+
+    virtual protected void FixedUpdate()
+    {
+
+    }
 }

@@ -18,4 +18,9 @@ public class BlockBase : ObjectBase
     {
         base.Update();
     }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
 }

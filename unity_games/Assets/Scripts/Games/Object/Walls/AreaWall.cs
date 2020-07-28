@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBall : BallBase
+public class AreaWall : WallBase
 {
     protected override void Start()
     {
         base.Start();
+
+        ChangeAlpha(0.0f);
     }
 
     protected override void Update()
@@ -17,12 +19,5 @@ public class MoveBall : BallBase
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-    }
-
-    protected override void OnCollisionEnter(Collision collision)
-    {
-        base.OnCollisionEnter(collision);
-
-        GravityManager.ChangeGravityVector();
     }
 }
