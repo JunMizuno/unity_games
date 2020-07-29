@@ -24,7 +24,6 @@ public class WallBase : ObjectBase
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         var currentColor = meshRenderer.material.color;
-        Debug.Log("currentColor:" + currentColor + "  alphaValue:" + alphaValue);
         meshRenderer.material.color = new Color(currentColor.r, currentColor.g, currentColor.b, alphaValue);
     }
 }

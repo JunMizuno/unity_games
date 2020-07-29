@@ -23,6 +23,10 @@ public class MoveBall : BallBase
     {
         base.OnCollisionEnter(collision);
 
+        //rigid.AddForce(500.0f, 0.0f, 500.0f);
+
         GravityManager.ChangeGravityVector();
+
+        //GravityManager.ChangeGravutyVectorWithRandomValue();
     }
 }
