@@ -23,10 +23,14 @@ public class MoveBall : BallBase
     {
         base.OnCollisionEnter(collision);
 
+        // @todo. AddForceかVelocityかどちらか、Gravityは上下のみ扱う方が良さそう
         //rigid.AddForce(500.0f, 0.0f, 500.0f);
 
         GravityManager.ChangeGravityVector();
 
         //GravityManager.ChangeGravutyVectorWithRandomValue();
+
+        GravityManager.DebugGravityStatus();
+        DebugRigidStatus();
     }
 }

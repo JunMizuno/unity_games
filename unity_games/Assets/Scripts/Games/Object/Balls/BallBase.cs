@@ -43,4 +43,14 @@ public class BallBase : ObjectBase
     {
 
     }
+
+    protected void DebugRigidStatus()
+    {
+        if(!rigid)
+        {
+            return;
+        }
+
+        Debug.Log("Velocity:" + rigid.velocity);
+    }
 }

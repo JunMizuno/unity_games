@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GravityManager
 {
+    public static void DebugGravityStatus()
+    {
+        Debug.Log("Grav:" + Physics.gravity);
+    }
+
     /// <summary>
     /// 重力反転
     /// </summary>
@@ -12,7 +17,7 @@ public class GravityManager
         var currentGrav = Physics.gravity;
 
         // @memo. 通常は地球と同じ-9.81fの設定がされている。
-        Physics.gravity = new Vector3(currentGrav.x, -currentGrav.y, currentGrav.z);
+        Physics.gravity = new Vector3(-currentGrav.x, -currentGrav.y, -currentGrav.z);
     }
 
     /// <summary>
@@ -31,6 +36,5 @@ public class GravityManager
 
         // @memo. Y軸の重力は固定
         Physics.gravity = new Vector3(currentGrav.x, -currentGrav.y, currentGrav.z);
-
     }
 }
