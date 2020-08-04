@@ -7,11 +7,15 @@ public class MoveBall : BallBase
     protected override void Start()
     {
         base.Start();
+
+        EnableUseGravity(false);
     }
 
     protected override void Update()
     {
         base.Update();
+
+        float test = GravityManager.FallSpeed;
     }
 
     protected override void FixedUpdate()
@@ -23,12 +27,9 @@ public class MoveBall : BallBase
     {
         base.OnCollisionEnter(collision);
 
-        // @todo. AddForceかVelocityかどちらか、Gravityは上下のみ扱う方が良さそう
-        //rigid.AddForce(500.0f, 0.0f, 500.0f);
 
-        GravityManager.ChangeGravityVector();
 
-        //GravityManager.ChangeGravutyVectorWithRandomValue();
+
 
         GravityManager.DebugGravityStatus();
         DebugRigidStatus();

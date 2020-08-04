@@ -25,6 +25,17 @@ public class BallBase : ObjectBase
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    protected void EnableUseGravity(bool enable)
+    {
+        if (rigid)
+        {
+            rigid.useGravity = enable;
+        }
+    }
+
+    /// <summary>
     /// 接触時のコールバック
     /// isTriggerが有効時のみ
     /// </summary>
@@ -52,5 +63,6 @@ public class BallBase : ObjectBase
         }
 
         Debug.Log("Velocity:" + rigid.velocity);
+        Debug.Log("Magnitude:" + rigid.velocity.magnitude);
     }
 }

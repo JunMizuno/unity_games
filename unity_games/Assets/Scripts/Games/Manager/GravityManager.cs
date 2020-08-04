@@ -4,9 +4,51 @@ using UnityEngine;
 
 public class GravityManager
 {
+    private static float fallSpeed;
+    public static float FallSpeed
+    {
+        get
+        {
+            return fallSpeed;
+        }
+    }
+    private static float forceSpeed;
+
     public static void DebugGravityStatus()
     {
         Debug.Log("Grav:" + Physics.gravity);
+    }
+
+    public static void AddFallSpeed()
+    {
+        fallSpeed += forceSpeed;
+    }
+
+    public static void ResetFallSpeed()
+    {
+        fallSpeed = 0.0f;
+    }
+
+    public static void AddForceSpeed()
+    {
+        forceSpeed += 0.02f;
+    }
+
+    public static void ResetFroceSpeed()
+    {
+        forceSpeed = 0.0f;
+    }
+
+    public static void AddAllSpeed()
+    {
+        AddForceSpeed();
+        AddFallSpeed();
+    }
+
+    public static void ResetAllSpeed()
+    {
+        ResetFallSpeed();
+        ResetFroceSpeed();
     }
 
     /// <summary>
@@ -21,9 +63,9 @@ public class GravityManager
     }
 
     /// <summary>
-    /// 
+    /// 重力反転し左右にも力を加える
     /// </summary>
-    public static void ChangeGravutyVectorWithRandomValue()
+    public static void ChangeGravityVectorWithRandomValue()
     {
         var currentGrav = Physics.gravity;
         var sign = Random.Range(0, 1);
