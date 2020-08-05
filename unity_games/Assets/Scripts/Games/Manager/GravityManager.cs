@@ -12,16 +12,20 @@ public class GravityManager
             return fallSpeed;
         }
     }
+
     private static float forceSpeed;
+
+    private static float vector = 1.0f;
 
     public static void DebugGravityStatus()
     {
-        Debug.Log("Grav:" + Physics.gravity);
+        Debug.Log("PhysicsGrav:" + Physics.gravity);
+        Debug.Log("vector:" + vector);
     }
 
     public static void AddFallSpeed()
     {
-        fallSpeed += forceSpeed;
+        fallSpeed += (forceSpeed * vector);
     }
 
     public static void ResetFallSpeed()
@@ -31,7 +35,7 @@ public class GravityManager
 
     public static void AddForceSpeed()
     {
-        forceSpeed += 0.001f;
+        forceSpeed += 0.0001f;
     }
 
     public static void ResetFroceSpeed()
@@ -49,6 +53,11 @@ public class GravityManager
     {
         ResetFallSpeed();
         ResetFroceSpeed();
+    }
+
+    public static void ChangeVector()
+    {
+        vector *= -1.0f;
     }
 
     /// <summary>

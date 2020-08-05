@@ -29,6 +29,7 @@ public class MoveBall : BallBase
         base.OnCollisionEnter(collision);
 
         GravityManager.ResetAllSpeed();
+        GravityManager.ChangeVector();
 
         GravityManager.DebugGravityStatus();
         DebugRigidStatus();
