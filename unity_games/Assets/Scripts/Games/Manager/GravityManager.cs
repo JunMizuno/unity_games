@@ -31,7 +31,7 @@ public class GravityManager
 
     public static void AddForceSpeed()
     {
-        forceSpeed += 0.02f;
+        forceSpeed += 0.001f;
     }
 
     public static void ResetFroceSpeed()

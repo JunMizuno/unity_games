@@ -14,8 +14,9 @@ public class MoveBall : BallBase
     protected override void Update()
     {
         base.Update();
+        GravityManager.AddAllSpeed();
 
-        float test = GravityManager.FallSpeed;
+        rigid.AddForce(0.0f, -GravityManager.FallSpeed, 0.0f);
     }
 
     protected override void FixedUpdate()
@@ -27,9 +28,7 @@ public class MoveBall : BallBase
     {
         base.OnCollisionEnter(collision);
 
-
-
-
+        GravityManager.ResetAllSpeed();
 
         GravityManager.DebugGravityStatus();
         DebugRigidStatus();
