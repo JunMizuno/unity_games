@@ -9,6 +9,9 @@ public class MoveBall : BallBase
         base.Start();
 
         EnableUseGravity(false);
+
+        // @todo. 初回の前後左右の移動量をランダムで設定
+        AddForceAtStart();
     }
 
     protected override void Update()
@@ -16,7 +19,7 @@ public class MoveBall : BallBase
         base.Update();
         GravityManager.AddAllSpeed();
 
-        rigid.AddForce(0.0f, -GravityManager.FallSpeed, 0.0f);
+        AddForceAtUpdate();
     }
 
     protected override void FixedUpdate()
@@ -33,5 +36,38 @@ public class MoveBall : BallBase
 
         GravityManager.DebugGravityStatus();
         DebugRigidStatus();
+    }
+
+    private void AddForceAtStart()
+    {
+        GravityManager.AddAllSpeed();
+
+        float vec = 1.0f;
+        float forceX = 0.0f;
+        float forceZ = 0.0f;
+
+        // @todo. 後でUtilityなどに集約
+        if (Random.Range(0, 1) == 0)
+        {
+            vec *= -1.0f;
+        }
+
+        forceX = Random.Range(0.0f, 1.0f) * vec;
+
+        if (Random.Range(0, 1) == 0)
+        {
+            vec *= -1.0f;
+        }
+
+        forceZ = Random.Range(0.0f, 1.0f) * vec;
+
+        rigid.AddForce(-GravityManager.FallSpeed * forceX, -GravityManager.FallSpeed, -GravityManager.FallSpeed * forceZ);
+    }
+
+    private void AddForceAtUpdate()
+    {
+        // @todo. バーとの衝突時にバーの移動ベクトルを反映させないといけない
+
+        rigid.AddForce(0.0f, -GravityManager.FallSpeed, 0.0f);
     }
 }
