@@ -68,6 +68,20 @@ public class MoveBall : BallBase
     {
         // @todo. バーとの衝突時にバーの移動ベクトルを反映させないといけない
 
-        rigid.AddForce(0.0f, -GravityManager.FallSpeed, 0.0f);
+        // @memo. velocityに応じてXとZにもForceを加算する
+        float forceX = 1.0f;
+        float forceZ = 1.0f;
+
+        if (rigid.velocity.x < 0.0f)
+        {
+            forceX *= -1.0f;
+        }
+
+        if (rigid.velocity.z < 0.0f)
+        {
+            forceZ *= -1.0f;
+        }
+
+        rigid.AddForce(GravityManager.FallSpeed * forceX, -GravityManager.FallSpeed, GravityManager.FallSpeed * forceZ);
     }
 }
