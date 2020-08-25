@@ -43,11 +43,13 @@ public class Bar : ObjectBase
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        // @todo. ここでバーの動きの方向を取ってGravityManagerに渡す様にする
+
+        Debug.Log("Collision:" + collision.gameObject.name);
     }
 }

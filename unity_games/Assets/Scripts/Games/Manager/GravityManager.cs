@@ -35,7 +35,8 @@ public class GravityManager
 
     public static void AddForceSpeed()
     {
-        forceSpeed += 0.0001f;
+        // @todo. 値は暫定的、自由にコントロール出来るように変えること
+        forceSpeed += 0.00001f;
     }
 
     public static void ResetFroceSpeed()

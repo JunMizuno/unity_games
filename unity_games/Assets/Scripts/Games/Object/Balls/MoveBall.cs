@@ -34,8 +34,8 @@ public class MoveBall : BallBase
         GravityManager.ResetAllSpeed();
         GravityManager.ChangeVector();
 
-        GravityManager.DebugGravityStatus();
-        DebugRigidStatus();
+        //GravityManager.DebugGravityStatus();
+        //DebugRigidStatus();
     }
 
     private void AddForceAtStart()
@@ -61,7 +61,7 @@ public class MoveBall : BallBase
 
         forceZ = Random.Range(0.0f, 1.0f) * vec;
 
-        rigid.AddForce(-GravityManager.FallSpeed * forceX, -GravityManager.FallSpeed, -GravityManager.FallSpeed * forceZ);
+        rigid.AddForce(GravityManager.FallSpeed * forceX, -GravityManager.FallSpeed, GravityManager.FallSpeed * forceZ);
     }
 
     private void AddForceAtUpdate()
